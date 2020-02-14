@@ -1,0 +1,82 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\cores\\arduino"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\variants\\mkrwifi1010"
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
+    "Include": "SPI.h",
+    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\libraries\\SPI"
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
+    "Include": "WiFiNINA.h",
+    "Includepath": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src"
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\wifi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\libraries\\SPI\\SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\WiFi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\WiFiClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\WiFiSSLClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\WiFiServer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\WiFiUdp.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\utility\\WiFiSocketBuffer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\utility\\server_drv.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\utility\\spi_drv.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\utility\\wifi_drv.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
