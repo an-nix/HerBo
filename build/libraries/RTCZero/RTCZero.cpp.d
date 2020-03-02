@@ -1,5 +1,6 @@
-c:\project\HerBo\build\sketch\sources.ino.cpp.o: \
- c:\project\HerBo\build\sketch\sources.ino.cpp \
+c:\project\HerBo\build\libraries\RTCZero\RTCZero.cpp.o: \
+ C:\Users\anton\Documents\Arduino\libraries\RTCZero\src\RTCZero.cpp \
+ C:\Users\anton\Documents\Arduino\libraries\RTCZero\src\RTCZero.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Arduino.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/avr/pgmspace.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/avr/interrupt.h \
@@ -104,18 +105,4 @@ c:\project\HerBo\build\sketch\sources.ino.cpp.o: \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/samd21_host.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/CDC.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/USBDesc.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/PluggableUSB.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\libraries\SPI/SPI.h \
- C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiNINA.h \
- C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFi.h \
- C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wl_definitions.h \
- C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wl_types.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/IPAddress.h \
- C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiClient.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Print.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Client.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/IPAddress.h \
- C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiSSLClient.h \
- C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiServer.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Server.h \
- C:\Users\anton\Documents\Arduino\libraries\RTCZero\src/RTCZero.h
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/PluggableUSB.h

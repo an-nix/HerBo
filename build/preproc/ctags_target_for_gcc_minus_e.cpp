@@ -1,14 +1,23 @@
 # 1 "c:\\project\\HerBo\\sources\\sources.ino"
 # 2 "c:\\project\\HerBo\\sources\\sources.ino" 2
 # 3 "c:\\project\\HerBo\\sources\\sources.ino" 2
-
-# 5 "c:\\project\\HerBo\\sources\\sources.ino" 2
-
+# 4 "c:\\project\\HerBo\\sources\\sources.ino" 2
 
 
-WiFiServer server(80);
-bool config = 1;
-int ssNbr;
+
+
+
+void photoperiod_ramp(uint64_t start, uint64_t stop, uint8_t level);
+
+/* Create an rtc object */
+RTCZero rtc;
+
+/******************************************************
+ * PhotoPeriod
+ ******************************************************/
+int photoperiod_step;
+int photoperiod_max_steps;
+int photoperiod_next;
 
 
 void setup()
@@ -21,98 +30,85 @@ void setup()
    SerialUSB.println("HerBo Start");
 
    pinMode((6u), (0x1)); // set the LED pin mode
- pinMode(14,(0x2));
+   pinMode(14,(0x2));
 
- config = !digitalRead(14);
+    rtc.begin(); // initialize RTC
 
- if(config)
- {
-  ssNbr = WiFi.scanNetworks();
-  start_ap(server);
- }
+    //rtc.setEpoch(1451606400); // Jan 1, 2016
+
+
+/* Change these values to set the current initial time */
+    const byte seconds = 0;
+    const byte minutes = 0;
+    const byte hours = 16;
+
+/* Change these values to set the current initial date */
+    const byte day = 26;
+    const byte month = 5;
+    const byte year = 20;
+
+  // you can use also
+    rtc.setTime(hours, minutes, seconds);
+    rtc.setDate(day, month, year);
+
+    photoperiod_step = 0;
+    photoperiod_max_steps = get_steps(0,1,0);
 }
 
 
-void loop() {
- if(config)
- {config_handler();}
-   // scan for existing networks:
- else
- {
-    SerialUSB.println("Scanning available networks...");
-  listNetworks();
-  delay(10000);
- }
-
-
-
-}
-
-void config_handler()
+void loop()
 {
- WiFiClient client = server.available(); // listen for incoming clients
+  //Serial.println(rtc.getEpoch());
+  photoperiod_ramp();
+}
 
 
-
-  if (client) { // if you get a client,
-    SerialUSB.println("new client"); // print a message out the serial port
-    String currentLine = ""; // make a String to hold incoming data from the client
-    while (client.connected()) { // loop while the client's connected
-      if (client.available()) { // if there's bytes to read from the client,
-
-  char c = client.read(); // read a byte, then
-        SerialUSB.write(c); // print it out the serial monitor
-        if (c == '\n') { // if the byte is a newline character
-
-          // if the current line is blank, you got two newline characters in a row.
-          // that's the end of the client HTTP request, so send a response:
-          if (currentLine.length() == 0) {
-            // HTTP headers always start with a response code (e.g. HTTP/1.1 200 OK)
-            // and a content-type so the client knows what's coming, then a blank line:
-            client.println("HTTP/1.1 200 OK");
-            client.println("Content-type:text/html");
-            client.println();
-
-
-   client.print("<select form=\"fm\" id=\"cars\">");
-     for (int thisNet = 0; thisNet < ssNbr; thisNet++)
-   {
-    String w = WiFi.SSID(thisNet);
-    client.print("<option value=\"" + w + "\">" + w + "</option>");
-     }
-   client.print("</select>");
-   client.print("<form id=\"fm\"");
-   client.print("<label for=\"pass\">First name:</label>");
-   client.print("<input type=\"text\" id=\"fname\" name=\"fname\"><br><br>");
-     client.print("<input type=\"submit\" value=\"Submit\">");
-   client.print("</form>");
-            client.println();
-
-            // The HTTP response ends with another blank line:
-            client.println();
-            // break out of the while loop:
-            break;
-          }
-          else { // if you got a newline, then clear currentLine:
-            currentLine = "";
-          }
-        }
-        else if (c != '\r') { // if you got anything else but a carriage return character,
-          currentLine += c; // add it to the end of the currentLine
-        }
-
-        // Check to see if the client request was "GET /H" or "GET /L":
-        if (currentLine.endsWith("GET /H")) {
-          digitalWrite((6u), (0x1)); // GET /H turns the LED on
-        }
-        if (currentLine.endsWith("GET /L")) {
-          digitalWrite((6u), (0x0)); // GET /L turns the LED off
-        }
-      }
-    }
-    // close the connection:
-    client.stop();
-    SerialUSB.println("client disconnected");
+void print2digits(int number) {
+  if (number < 10) {
+    SerialUSB.print("0"); // print a 0 before if the number is < than 10
   }
+  SerialUSB.print(number);
+}
 
+//Get number of Steps for the photo period
+uint32_t get_steps(int hours, int minutes, int seconds)
+{
+  float f = (seconds + 60*minutes + 3600*hours) / 30;
+  SerialUSB.println(floor(f));
+  return floor(f);
+}
+
+
+void photoperiod_ramp()
+{
+  //Am I in day mode
+  if(photoperiod_step != -1) {
+    int epoch = rtc.getEpoch();
+
+    //Sunrise
+    if(photoperiod_step == 0) {
+      SerialUSB.println("PhotoPeriod Start");
+      //Turn On Light
+      digitalWrite((6u),(0x1));
+      //Set next alarm to resolution
+      photoperiod_next = epoch + 30;
+      photoperiod_step++;
+    }
+
+    //Sunset
+    else if(photoperiod_step > photoperiod_max_steps) {
+      SerialUSB.println("PhotoPeriod Stop");
+      photoperiod_step=-1;
+      //Turn Off Light
+      digitalWrite((6u),(0x0));
+      //Set Next alarm
+    }
+
+    else if(epoch >= photoperiod_next) {
+
+      photoperiod_next = epoch + 30;
+      SerialUSB.println(epoch);
+      photoperiod_step++;
+    }
+  }
 }

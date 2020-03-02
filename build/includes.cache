@@ -21,6 +21,16 @@
   },
   {
     "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
+    "Include": "RTCZero.h",
+    "Includepath": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\RTCZero\\src"
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\HtmlGen.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -76,6 +86,11 @@
   },
   {
     "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\utility\\wifi_drv.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\RTCZero\\src\\RTCZero.cpp",
     "Include": "",
     "Includepath": null
   }
