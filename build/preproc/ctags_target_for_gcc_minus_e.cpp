@@ -36,6 +36,7 @@ void setup()
    SerialUSB.println("HerBo Start");
 
    pinMode((6u), (0x1)); // set the LED pin mode
+    pinMode(A4, (0x1)); // set the LED pin mode
    pinMode(14,(0x2));
 
     rtc.begin(); // initialize RTC
@@ -102,6 +103,7 @@ void photoperiod()
       SerialUSB.println("PhotoPeriod Start");
       //Turn On Light
       digitalWrite((6u),(0x1));
+      digitalWrite(A4,(0x1));
       //Set next alarm to resolution
       photoperiod_next = epoch + 30;
       photoperiod_step++;
@@ -113,6 +115,7 @@ void photoperiod()
       photoperiod_step=-1;
       //Turn Off Light
       digitalWrite((6u),(0x0));
+      digitalWrite(A4,(0x0));
       set_next_sunrise();
     }
 
@@ -194,7 +197,7 @@ float calculateSunrise(bool rise,int year,int month,int day,float lat, float lng
     }
     else
     {
-      H = acos(cosH); //   if setting time is desired:      
+      H = (180/3.1415926535897932384626433832795)*acos(cosH); //   if setting time is desired:      
     }
 
     H = H / 15;
@@ -202,12 +205,19 @@ float calculateSunrise(bool rise,int year,int month,int day,float lat, float lng
     //8. calculate local mean time of rising/setting      
     float T = H + RA - (0.06571 * t) - 6.622;
 
-    //9. adjust back to UTC
-    float UT = fmod(T - lngHour,24.0);
-    SerialUSB.println(UT);
+    //9. adjust back to UTC & convert UT value to local time zone of latitude/longitude
+    float UT = fmod(T - lngHour,24.0) + localOffset + daylightSavings;
+    while(UT < 0 | UT > 24)
+    {
+      if(UT < 0)
+          UT += 24;
+      else if (UT > 24)
+          UT -= 24;
+    }
 
-    //10. convert UT value to local time zone of latitude/longitude
-    return UT + localOffset + daylightSavings;
+
+    //10. 
+    return UT;
 
     }
 

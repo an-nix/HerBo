@@ -27,23 +27,23 @@ int photoperiod_next;
 
 #line 26 "c:\\project\\HerBo\\sources\\sources.ino"
 void setup();
-#line 66 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 67 "c:\\project\\HerBo\\sources\\sources.ino"
 void loop();
-#line 72 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 73 "c:\\project\\HerBo\\sources\\sources.ino"
 void sunrise();
-#line 78 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 79 "c:\\project\\HerBo\\sources\\sources.ino"
 uint32_t get_steps(int hours, int minutes, int seconds);
-#line 85 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 86 "c:\\project\\HerBo\\sources\\sources.ino"
 void set_next_sunrise();
-#line 91 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 92 "c:\\project\\HerBo\\sources\\sources.ino"
 void photoperiod();
-#line 126 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 129 "c:\\project\\HerBo\\sources\\sources.ino"
 int get_day_of_the_year(int year,int month, int day);
-#line 131 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 134 "c:\\project\\HerBo\\sources\\sources.ino"
 float calculateSunrise(bool rise,int year,int month,int day,float lat, float lng,int localOffset, int daylightSavings);
-#line 211 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 221 "c:\\project\\HerBo\\sources\\sources.ino"
 void printSunrise();
-#line 223 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 233 "c:\\project\\HerBo\\sources\\sources.ino"
 void printSunset();
 #line 26 "c:\\project\\HerBo\\sources\\sources.ino"
 void setup() 
@@ -56,6 +56,7 @@ void setup()
   	Serial.println("HerBo Start");
 
   	pinMode(LED_BUILTIN, OUTPUT);      // set the LED pin mode
+    pinMode(A4, OUTPUT);      // set the LED pin mode
   	pinMode(CONFIG_PIN,INPUT_PULLUP);  
 
     rtc.begin(); // initialize RTC
@@ -122,6 +123,7 @@ void photoperiod()
       Serial.println("PhotoPeriod Start");
       //Turn On Light
       digitalWrite(LED_BUILTIN,HIGH);
+      digitalWrite(A4,HIGH);
       //Set next alarm to resolution
       photoperiod_next = epoch + RESOLUTION;
       photoperiod_step++;
@@ -133,6 +135,7 @@ void photoperiod()
       photoperiod_step=-1;
       //Turn Off Light
       digitalWrite(LED_BUILTIN,LOW);
+      digitalWrite(A4,LOW);
       set_next_sunrise();
     }
 
@@ -214,7 +217,7 @@ float calculateSunrise(bool rise,int year,int month,int day,float lat, float lng
     }
     else
     {
-      H = acos(cosH); //   if setting time is desired:      
+      H = (180/PI)*acos(cosH); //   if setting time is desired:      
     }
     
     H = H / 15;
@@ -222,12 +225,19 @@ float calculateSunrise(bool rise,int year,int month,int day,float lat, float lng
     //8. calculate local mean time of rising/setting      
     float T = H + RA - (0.06571 * t) - 6.622;
 
-    //9. adjust back to UTC
-    float UT = fmod(T - lngHour,24.0);
-    Serial.println(UT);
+    //9. adjust back to UTC & convert UT value to local time zone of latitude/longitude
+    float UT = fmod(T - lngHour,24.0) + localOffset + daylightSavings;
+    while(UT < 0 | UT > 24)
+    {
+      if(UT < 0)
+          UT += 24;
+      else if (UT > 24)
+          UT -= 24;
+    }
 
-    //10. convert UT value to local time zone of latitude/longitude
-    return UT + localOffset + daylightSavings;
+
+    //10. 
+    return UT;
 
     }
 
