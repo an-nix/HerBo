@@ -21,6 +21,11 @@
   },
   {
     "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\libraries\\Wire"
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
     "Include": "RTCZero.h",
     "Includepath": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\RTCZero\\src"
   },
@@ -30,7 +35,22 @@
     "Includepath": null
   },
   {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\BH1750.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
     "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\HtmlGen.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\photo_period.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\timeduino.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -86,6 +106,11 @@
   },
   {
     "Sourcefile": "C:\\Users\\anton\\Documents\\Arduino\\libraries\\WiFiNINA\\src\\utility\\wifi_drv.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\libraries\\Wire\\Wire.cpp",
     "Include": "",
     "Includepath": null
   },

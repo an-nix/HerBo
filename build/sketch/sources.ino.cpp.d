@@ -118,4 +118,9 @@ c:\project\HerBo\build\sketch\sources.ino.cpp.o: \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiSSLClient.h \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiServer.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Server.h \
- C:\Users\anton\Documents\Arduino\libraries\RTCZero\src/RTCZero.h
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\libraries\Wire/Wire.h \
+ c:\project\HerBo\build\sketch\photo_period.h \
+ c:\project\HerBo\build\sketch\timeduino.h \
+ C:\Users\anton\Documents\Arduino\libraries\RTCZero\src/RTCZero.h \
+ c:\project\HerBo\build\sketch\hardware_config.h \
+ c:\project\HerBo\build\sketch\BH1750.h
