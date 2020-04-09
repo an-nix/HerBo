@@ -12,12 +12,11 @@
     void (*alarm_callback)();
 
 
-uint32_t get_epoch(byte year, byte month, byte day, byte hour, byte minute, byte second)
-{
+uint32_t get_epoch(int year, byte month, byte day, byte hour, byte minute, byte second) {
     struct tm t;
     time_t t_of_day;
 
-    t.tm_year = year-1900;  // Year - 1900
+    t.tm_year = year - 1900;  // Year - 1900
     t.tm_mon = month-1;           // Month, where 0 = jan
     t.tm_mday = day;          // Day of the month
     t.tm_hour = hour;
@@ -69,4 +68,15 @@ void init_alarm_RTCZero(void (* func)())
 void init_alarm_millis(void (* func)())
 {
     alarm_callback = func;
+}
+
+uint32_t get_midnight(uint32_t epoch,bool next_day)
+{
+    uint32_t since_mid = epoch % 86400;
+    uint32_t _t = epoch - since_mid;
+    if(next_day)
+        _t += 86400;
+    Serial.println("Midnight");
+    Serial.println((long)_t);
+    return _t;
 }

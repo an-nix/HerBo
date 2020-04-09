@@ -9,120 +9,54 @@
 #include "hardware_config.h"
 
 
+  Light* l1;
+  Light* l2;
+  PhotoPeriod* ph;
 
-BH1750 lightMeter;
-Light* l1 ;
-Light* l2;
+  const byte seconds = 0;
+  const byte minutes = 50;
+  const byte hours = 6;
 
-int _status;
-int steps;
-unsigned long next_millis;
+  const byte day = 26;
+  const byte month = 5;
+  const int year = 2020;
 
 void setup() 
 {
 
-    //Initialize Lights
-    l1 = new Light(0,true);
-    l2 = new Light(4,false);
+  //Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial);// wait for serial port to connect. Needed for native USB port only
 
-  	//Initialize serial and wait for port to open:
-  	Serial.begin(9600);
-  	while (!Serial);// wait for serial port to connect. Needed for native USB port only
+  Serial.println("HerBo Start");
 
-  	Serial.println("HerBo Start");
+  pinMode(LED_BUILTIN, OUTPUT);      // set the LED pin mode
 
-  	pinMode(LED_BUILTIN, OUTPUT);      // set the LED pin mode
-
-    
-    
-  
-
-    const byte seconds = 0;
-    const byte minutes = 0;
-    const byte hours = 16;
-
-
-    const byte day = 21;
-    const byte month = 3;
-    const byte year = 20;
-
-
-    set_time(get_epoch(year,month,day,hours,minutes,seconds));
-    
-    //rtc.attachInterrupt(sunrise);
-    
-    digitalWrite(LED_2_PIN, HIGH);
-
-
-  // Initialize the I2C bus (BH1750 library doesn't do this automatically)
-  // On esp8266 devices you can select SCL and SDA pins using Wire.begin(D4, D3);
-  Wire.begin();
-
-  lightMeter.begin();
-  Serial.println(F("BH1750 Test"));
-
-  //Global Variable init 
-  next_millis = 0;
-  _status = 0;
-  steps = 0;
-  
   //Set PWM Resolution on 10bits;
   #ifdef ADC_10_BITS
     analogWriteResolution(10);
   #else 
     analogWriteResolution(8);
   #endif
+
+ //Initialize Lights
+  l1 = new Light(0,true);
+  l2 = new Light(4,false);
+
+  ph = new PhotoPeriod(-98.183334,19.033333,-5);
+  ph->add_light(l1);
+  ph->add_light(l2);
+
+  init_time();
+  set_time(EPOCH_DEFAULT);
+  ph->sync(EPOCH_DEFAULT);
+  //Try 
 }
 
 
-void loop() 
-{
-
-  switch(_status)
-  {
-    //Initializing
-    //Je sais pas ou je suis, quand je suis
-    //Led Blinking
-    case 0:
-      unsigned long m = millis();
-      if(m>next_millis)
-        {
-
-          steps++;
-          int u = pairiod(steps,250);
-          
-          Serial.println(u);
-          l1->dim(u);
-          l2->dim(u);
-          next_millis += 250 * RESOLUTION;
-        }
-
-      break;
-  }
-
-  #ifdef USE_MILLI
-    nop();
-  #endif
-  
+void loop() {
   //photoperiod();
-
-
 }
-
-int pairiod(uint32_t steps,uint32_t length)
-{
-  
-  double dd = sin(((2 * PI * steps * RESOLUTION) / length) + (3*PI / 2 ));
-  int ret = floor(1024*dd + 1024);
-  #ifdef ADC_10_BITS
-    ret = map(ret,0,256,ADC_LOWER_BOUND,ADC_UPPER_BOUND);
-  #else
-    ret = map(ret,0,256,ADC_LOWER_BOUND,ADC_UPPER_BOUND);
-  #endif
-
-  return(ret);
-}
-
 
 
 
