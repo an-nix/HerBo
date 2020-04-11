@@ -72,9 +72,9 @@ class PhotoPeriod
         int add_light(Light*);
         int add_light(int,bool);
         uint32_t get_next_sunrise(bool rise,uint32_t epoch, bool next_day);
-        void sunrise();
-        void sunset();
         void sync(uint32_t epoch);
+        void do_periodic_stuff(void);
+        int get_luminosity(uint32_t);
 
 };
 

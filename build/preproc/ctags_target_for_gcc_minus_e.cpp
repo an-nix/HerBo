@@ -6,21 +6,22 @@
 # 6 "c:\\project\\HerBo\\sources\\sources.ino" 2
 
 # 8 "c:\\project\\HerBo\\sources\\sources.ino" 2
+# 9 "c:\\project\\HerBo\\sources\\sources.ino" 2
 
 
 
 
-  Light* l1;
-  Light* l2;
+
+
+  Light *l1,*l2;
+  //Light* l2;
   PhotoPeriod* ph;
+  WiBo* w;
 
-  const byte seconds = 0;
-  const byte minutes = 50;
-  const byte hours = 6;
 
-  const byte day = 26;
-  const byte month = 5;
-  const int year = 2020;
+  int wifi_last_status_mil;
+  int wifi_last_reconnect_mil;
+
 
 void setup()
 {
@@ -40,9 +41,6 @@ void setup()
 
 
 
-
- //set_time(get_epoch(year,month,day,hours,minutes,seconds));
-
  //Initialize Lights
   l1 = new Light(0,true);
   l2 = new Light(4,false);
@@ -51,35 +49,45 @@ void setup()
   ph->add_light(l1);
   ph->add_light(l2);
 
-  //Serial.println("Get Next Sunrise");
-  //uint32_t ep = get_epoch(year,month,day,0,0,0) + (ph->get_next_sunrise(true,year,month,day,-7,1)*3600);
-  //Serial.println(ep);
-
   init_time_RTCZero();
   set_time_RTCZero(1590472800);
   ph->sync(1590472800);
-  //Try
+
+  w = new WiBo("annix_home","welcome @t h0me");
+
+  int wifi_last_status_mil = 0;
+  int wifi_last_reconnect_mil = 0;
+
+  w->connect_ap();
+  w->update_status();
+
 
 
 }
 
 
 void loop() {
+
+
+  int current_millis = millis();
+
+  if((current_millis > wifi_last_reconnect_mil + 10000) &&
+        !(w->is_connected()))
+  {
+    w->connect_ap();
+    wifi_last_reconnect_mil = current_millis;
+  }
+
+  if(current_millis > wifi_last_status_mil + 1000)
+  {
+    w->update_status();
+    SerialUSB.println(current_millis - (wifi_last_status_mil + 1000));
+    wifi_last_status_mil = current_millis;
+  }
+
+
+
+
+  //update_led_status(w->_status);
   //photoperiod();
-
-}
-
-void sync_sun(time_t epoch)
-{
-
-
-  ph->get_next_sunrise(true,epoch,false);
-  ph->get_next_sunrise(true,epoch,true);
-  //sync time
-  //get next Sunrise
-  //is next sunrise passed?
-  //is next sunset passed
-  //get next sunrise and wait
-
-
 }

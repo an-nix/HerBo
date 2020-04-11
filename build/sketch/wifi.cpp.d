@@ -117,4 +117,10 @@ c:\project\HerBo\build\sketch\wifi.cpp.o: \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/IPAddress.h \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiSSLClient.h \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiServer.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Server.h
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Server.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiUdp.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Udp.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wifi_drv.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wifi_spi.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wl_definitions.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiClient.h

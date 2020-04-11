@@ -123,4 +123,11 @@ c:\project\HerBo\build\sketch\sources.ino.cpp.o: \
  c:\project\HerBo\build\sketch\timeduino.h \
  C:\Users\anton\Documents\Arduino\libraries\RTCZero\src/RTCZero.h \
  c:\project\HerBo\build\sketch\hardware_config.h \
- c:\project\HerBo\build\sketch\BH1750.h
+ c:\project\HerBo\build\sketch\BH1750.h \
+ c:\project\HerBo\build\sketch\wifi.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiUdp.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Udp.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wifi_drv.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wifi_spi.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wl_definitions.h \
+ C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/WiFiClient.h
