@@ -1,11 +1,11 @@
 c:\project\HerBo\build\libraries\WiFiNINA\utility\spi_drv.cpp.o: \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src\utility\spi_drv.cpp \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Arduino.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/avr/pgmspace.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/avr/interrupt.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/avr/io.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/binary.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/itoa.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/Arduino.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/avr/pgmspace.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/avr/interrupt.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/avr/io.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/binary.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/itoa.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/sam.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd21/include/samd21.h \
@@ -71,43 +71,43 @@ c:\project\HerBo\build\libraries\WiFiNINA\utility\spi_drv.cpp.o: \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd21/include/instance/usb.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd21/include/instance/wdt.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd21/include/pio/samd21g18a.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/wiring_constants.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/WVariant.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/WCharacter.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/WString.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/avr/pgmspace.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Tone.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Arduino.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/WMath.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/HardwareSerial.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Stream.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Print.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Printable.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/pulse.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/delay.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\variants\mkrwifi1010/variant.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/SERCOM.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Uart.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/SERCOM.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/RingBuffer.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/wiring.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/wiring_digital.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/wiring_analog.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/wiring_shift.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/WInterrupts.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/USBDesc.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/USBCore.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/USBAPI.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/Stream.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/RingBuffer.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/USB_host.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/samd21_host.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/CDC.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/USBDesc.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino/USB/PluggableUSB.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\libraries\SPI/SPI.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/wiring_constants.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/WVariant.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/WCharacter.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/WString.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/avr/pgmspace.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/Tone.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/Arduino.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/WMath.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/HardwareSerial.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/Stream.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/Print.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/Printable.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/pulse.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/delay.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\variants\mkrwifi1010/variant.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/SERCOM.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/Uart.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/SERCOM.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/RingBuffer.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/wiring.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/wiring_digital.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/wiring_analog.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/wiring_shift.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/WInterrupts.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/USB/USBDesc.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/USB/USBCore.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/USB/USBAPI.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/Stream.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/RingBuffer.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/USB/USB_host.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/USB/samd21_host.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/USB/CDC.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/USB/USBDesc.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino/USB/PluggableUSB.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\libraries\SPI/SPI.h \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/spi_drv.h \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wifi_spi.h \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/wl_definitions.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\variants\mkrwifi1010/pins_arduino.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\variants\mkrwifi1010/pins_arduino.h \
  C:\Users\anton\Documents\Arduino\libraries\WiFiNINA\src/utility/debug.h

@@ -1,20 +1,6 @@
 #include "photo_period.h"
 
 
-int luminosity_value(uint32_t steps, uint32_t length)
-{
-  
-  double dd = sin(((2 * PI * steps * RESOLUTION) / length) + (3*PI / 2 ));
-  int ret = floor(1024*dd + 1024);
-  #ifdef ADC_10_BITS
-    ret = map(ret,0,256,ADC_LOWER_BOUND,ADC_UPPER_BOUND);
-  #else
-    ret = map(ret,0,256,ADC_LOWER_BOUND,ADC_UPPER_BOUND);
-  #endif
-
-  return(ret);
-}
-
 
 Light::Light(int pin, bool inverted) {
   this->pin = pin;
@@ -60,6 +46,8 @@ PhotoPeriod::PhotoPeriod(float longitude, float latitude, int localOffset) {
   this->_max_steps = 0;
   this->_iter = 0;
   this->_nextEpoch = 0;
+  //init_alarm(init_period);
+  
  
 }
 
@@ -198,6 +186,7 @@ void PhotoPeriod::sync(uint32_t epoch) {
   //If the next sunset is in the past, recalculate for the next day
   if(epoch > sunset - SYNC_DOWN_DELTA)
   {
+    Serial.println("Too late");
     this->_stime.sunrise = this->get_next_sunrise(true,epoch,true);
     sunset = this->get_next_sunrise(false,epoch,true);
   }
@@ -210,24 +199,38 @@ void PhotoPeriod::sync(uint32_t epoch) {
     if(this->_stime.sunrise > epoch + SYNC_UP_DELTA)
     {
     //Set alarm
+    Serial.println("Too Early");
+    Serial.print(this->_stime.sunrise - epoch);
+    Serial.print(" second to wait");
+    set_alarm(this->_stime.sunrise);
     }
     //Work In Progress (Sunset is coming)
     else if(epoch  + SYNC_DOWN_DELTA < sunset)
     {
       //Get Remaining Step
+      Serial.println("Work in Progress");
       this->_step = floor((epoch - this->_stime.sunrise) / RESOLUTION);
+      this->_nextEpoch = epoch + RESOLUTION;
+      Serial.print("Step: ");
+      Serial.println(this->_step);
     }     
 
   }
+    Serial.print("Sunset : ");
+    Serial.println(sunset);
+    Serial.print("Sunrise : ");
+    Serial.println(this->_stime.sunrise);
+    Serial.print("Duration : ");
+    Serial.println(sunset - this->_stime.sunrise);
     this->_stime.duration = sunset - this->_stime.sunrise;
     this->_max_steps = floor(this->_stime.duration / RESOLUTION);
+    Serial.print("Max Step: ");
+    Serial.println(this->_max_steps);
 
 }
 
-void PhotoPeriod::do_periodic_stuff(void)
+void PhotoPeriod::loop(void)
 {
-
-
 
   // Day mode?
   if(this->_nextEpoch > 0)
@@ -245,7 +248,20 @@ void PhotoPeriod::do_periodic_stuff(void)
       }
       else
       {
+        //////////////////
+        //DRIFT DETECTOR
+        int drift = current_epoch - this->_nextEpoch;
+        Serial.println(this->_step);
+        //Serial.println(current_epoch);
+        //Serial.println(this->_nextEpoch);
+        //Serial.println(drift);  
+        if(drift >= RESOLUTION)
+        {
+          this->_step += floor(drift/RESOLUTION) ;           
+        }
+        /////////////////
         uint32_t luminosity = this->get_luminosity(this->_step);
+        Serial.println(luminosity);
         for(int i = 0;i<this->_iter;i++)
           this->_lights[i]->dim(luminosity); 
         this->_nextEpoch = current_epoch + RESOLUTION;
@@ -261,17 +277,26 @@ void PhotoPeriod::do_periodic_stuff(void)
 int PhotoPeriod::get_luminosity(uint32_t steps)
 {
   
-  double dd = sin(((2 * PI * steps * RESOLUTION) / this->_max_steps) + (3*PI / 2 ));
-  int ret = floor(1024*dd + 1024);
-
+  double dd = sin(((2 * PI * steps ) / this->_max_steps) + (3*PI / 2 ));
+  int ret = floor(512*dd + 512);
   #ifdef ADC_10_BITS
-    ret = map(ret,0,256,ADC_LOWER_BOUND,ADC_UPPER_BOUND);
+    ret = map(ret,0,1024,ADC_LOWER_BOUND,ADC_UPPER_BOUND);
   #else
-    ret = map(ret,0,256,ADC_LOWER_BOUND,ADC_UPPER_BOUND);
+    ret = map(ret,0,1024,ADC_LOWER_BOUND,ADC_UPPER_BOUND);
   #endif
 
   return(ret);
 }
 
+void PhotoPeriod::init_period() {
+
+    this->_nextEpoch  = get_time();
+    this->_step = 0;   
+}
+
+uint32_t PhotoPeriod::get_sunrise_time() {
+
+  return(this->_stime.sunrise);
+}
 
 

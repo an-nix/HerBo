@@ -56,12 +56,10 @@ unsigned long sendNTPpacket(IPAddress& address, WiFiUDP* u) {
   //Serial.println("6");
 }
 
-WiBo::WiBo(const char* ssid, const char* password){
+WiBo::WiBo(const char* ssid, const char* password,int port){
 
 
-    WiFiDrv::pinMode(WIFI_LED_GREEN, OUTPUT);  //GREEN
-    WiFiDrv::pinMode(WIFI_LED_RED, OUTPUT);  //RED
-    WiFiDrv::pinMode(WIFI_LED_BLUE, OUTPUT);  //BLUE
+
   
   // check for the WiFi module:
   	if (WiFi.status() == WL_NO_MODULE) 
@@ -82,6 +80,7 @@ WiBo::WiBo(const char* ssid, const char* password){
 		this->_ready = true;
 		this->_password = password;
 		this->_ssid = ssid;
+    this->_server = new WiFiServer(80);
 
 	}
 
@@ -132,4 +131,147 @@ void WiBo::update_status(){
 bool WiBo::is_connected()
 {
   return(this->_status == WL_CONNECTED);
+}
+
+
+
+int keyIndex = 0;                // your network key Index number (needed only for WEP)
+
+int status = WL_IDLE_STATUS;
+
+String ConfigurationWebServer::serve() {
+
+	unsigned int i = strlen(_body);
+	Serial.print(_body);
+	char* content = fill_content();
+	i += strlen(content);
+	Serial.print(content);
+	char* ret = new char[i];
+	sprintf(ret,_body,content);
+	Serial.print(ret);
+	return ret;
+
+}
+
+char* ConfigurationWebServer::fill_content() {
+
+	String rets = "Bonjour";
+	int i = rets.length() + 1;
+	char* ret = new char[i];
+	rets.toCharArray(ret,i);
+	return ret;
+
+}
+
+WifiHandler::WifiHandler(const char* ssid, const char* pass,WifiMode mode, uint32_t status_rearm, uint32_t connect_rearm) {
+  
+  // check for the WiFi module
+	if (WiFi.status() == WL_NO_MODULE) {
+		Serial.println("Communication with WiFi module failed!");
+		this->__ready = false;
+    }
+
+  //check firmware version
+	else if (WiFi.firmwareVersion() < WIFI_FIRMWARE_LATEST_VERSION) {
+		Serial.println("Please upgrade the firmware");
+    this->__ready = false;
+	}
+
+  //Wireless Module is ready
+  else {
+    this->__ready = true;
+	  this->__status = WL_IDLE_STATUS;
+    this->__mode = mode;
+    this->__ssid = ssid;
+    this->__pass = pass;
+    this->__status_timer = 0;
+    this->__connect_timer = 0;
+    this->__status_rearm_timer = status_rearm;
+    this->__connect_rearm_timer = connect_rearm;
+    this->__on_connect = NULL;
+    this->__on_disconnect = NULL;
+    this->__previous_state = false;
+  }
+
+
+}
+
+
+int WifiHandler::connect() {
+
+  if(this->__ready)
+  {
+    if(this->__mode == WifiMode::AP)
+    {
+      this->__status = WiFi.beginAP(this->__ssid.c_str(),this->__pass.c_str());
+    }
+    
+    else if (this->__mode == WifiMode::Station)
+    {
+      this->__status = WiFi.begin(this->__ssid.c_str(),this->__pass.c_str());
+    }
+  }
+
+  return(this->__status);
+}
+
+bool WifiHandler::is_connected() {
+  if(this->__mode == WifiMode::AP)
+    return(this->__status == WL_AP_LISTENING || this->__status == WL_AP_CONNECTED);
+  else
+    return(this->__status == WL_CONNECTED);
+}
+
+int WifiHandler::timed_loop(uint32_t current_time) {
+
+ if(this->__ready)
+ {
+  if(current_time > this->__status_timer)
+    {
+      //w->update_status();
+      this->__status = WiFi.status();
+      this->__status_timer = current_time + this->__status_rearm_timer;
+      
+      bool tcon = this->is_connected();
+      if(this->__previous_state != tcon)
+        {
+          if(tcon)
+          {
+            this->__on_connect();
+          }
+          else
+          {
+            this->__on_disconnect();
+          }
+          
+          this->__previous_state = tcon;          
+        }
+
+    }
+
+    if(current_time > this->__connect_timer && !(this->is_connected()))
+    {
+      this->connect();
+      this->__connect_timer = current_time + this->__connect_rearm_timer;
+    }
+ 
+    return(this->__status);
+  }
+  else
+  {
+    return(-1);
+  }
+  
+}
+
+void WifiHandler::loop() {
+	//__client_handler(__server);
+}
+
+void WifiHandler::attach_connect(void (*callback)()) {
+  this->__on_connect = callback;
+}
+
+void WifiHandler::attach_disconnect(void (*callback)()) {
+  this->__on_disconnect = callback;
 }

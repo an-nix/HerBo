@@ -9,7 +9,7 @@
 #define MAX_LED_GROUP 2
 
 #define ZENITH -.83
-#define RESOLUTION 1
+#define RESOLUTION 5
 
 
 #define SYNC_UP_DELTA 0
@@ -73,8 +73,10 @@ class PhotoPeriod
         int add_light(int,bool);
         uint32_t get_next_sunrise(bool rise,uint32_t epoch, bool next_day);
         void sync(uint32_t epoch);
-        void do_periodic_stuff(void);
+        void loop(void);
         int get_luminosity(uint32_t);
+        void init_period();
+        uint32_t get_sunrise_time();
 
 };
 

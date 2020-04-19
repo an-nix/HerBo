@@ -2,17 +2,17 @@
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\cores\\arduino"
+    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.6\\cores\\arduino"
   },
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\variants\\mkrwifi1010"
+    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.6\\variants\\mkrwifi1010"
   },
   {
     "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
     "Include": "SPI.h",
-    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\libraries\\SPI"
+    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.6\\libraries\\SPI"
   },
   {
     "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
@@ -22,7 +22,7 @@
   {
     "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
     "Include": "Wire.h",
-    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\libraries\\Wire"
+    "Includepath": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.6\\libraries\\Wire"
   },
   {
     "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\sources.ino.cpp",
@@ -36,6 +36,11 @@
   },
   {
     "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\BH1750.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\project\\HerBo\\build\\sketch\\HtmlGen.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -55,7 +60,7 @@
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\libraries\\SPI\\SPI.cpp",
+    "Sourcefile": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.6\\libraries\\SPI\\SPI.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -105,7 +110,7 @@
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.4\\libraries\\Wire\\Wire.cpp",
+    "Sourcefile": "C:\\Users\\anton\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\samd\\1.8.6\\libraries\\Wire\\Wire.cpp",
     "Include": "",
     "Includepath": null
   },

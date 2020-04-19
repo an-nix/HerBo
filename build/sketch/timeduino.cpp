@@ -63,11 +63,24 @@ int alarm_wo_rtc()
 void init_alarm_RTCZero(void (* func)())
 {
    rtc.attachInterrupt(func);
+   rtc.enableAlarm(rtc.MATCH_YYMMDDHHMMSS);
 }
+
+
 
 void init_alarm_millis(void (* func)())
 {
     alarm_callback = func;
+}
+
+void set_alarm_RTCZero(uint32_t epoch) {
+
+    rtc.setAlarmEpoch(epoch);
+
+}
+
+void set_alarm_millis(uint32_t epoch) {
+    
 }
 
 uint32_t get_midnight(uint32_t epoch,bool next_day)
@@ -80,3 +93,5 @@ uint32_t get_midnight(uint32_t epoch,bool next_day)
     Serial.println((long)_t);
     return _t;
 }
+
+

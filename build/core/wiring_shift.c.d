@@ -1,8 +1,8 @@
 c:\project\HerBo\build\core\wiring_shift.c.o: \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino\wiring_shift.c \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino\wiring_shift.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino\wiring_digital.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino\WVariant.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino\wiring_shift.c \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino\wiring_shift.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino\wiring_digital.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino\WVariant.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/sam.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd21/include/samd21.h \
@@ -68,5 +68,5 @@ c:\project\HerBo\build\core\wiring_shift.c.o: \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd21/include/instance/usb.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd21/include/instance/wdt.h \
  C:\Users\anton\AppData\Local\Arduino15\packages\arduino\tools\CMSIS-Atmel\1.2.0/CMSIS/Device/ATMEL/samd21/include/pio/samd21g18a.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino\wiring_private.h \
- C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.4\cores\arduino\wiring_constants.h
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino\wiring_private.h \
+ C:\Users\anton\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.6\cores\arduino\wiring_constants.h
