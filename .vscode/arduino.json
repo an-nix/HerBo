@@ -1,6 +1,0 @@
-{
-    "board": "arduino:samd:mkrwifi1010",
-    "sketch": "sources\\sources.ino",
-    "output": "./build",
-    "port": "COM6"
-}
