@@ -9,7 +9,7 @@
 #define MAX_LED_GROUP 2
 
 #define ZENITH -.83
-#define RESOLUTION 5
+#define RESOLUTION 1
 
 
 #define SYNC_UP_DELTA 0

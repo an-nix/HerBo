@@ -8,7 +8,7 @@
 #define LED_2_INVERTED 0
 
 #define ADC_10_BITS
-#define ADC_LOWER_BOUND 100
+#define ADC_LOWER_BOUND 0
 #define ADC_UPPER_BOUND 1023
 
 

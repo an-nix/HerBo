@@ -11,6 +11,8 @@
 
 # 12 "c:\\project\\HerBo\\sources\\sources.ino" 2
 
+# 14 "c:\\project\\HerBo\\sources\\sources.ino" 2
+
 
 
 
@@ -44,7 +46,7 @@
         WL_AP_FAILED
 
 */
-# 35 "c:\\project\\HerBo\\sources\\sources.ino"
+# 37 "c:\\project\\HerBo\\sources\\sources.ino"
   Light *l1,*l2;
   //Light* l2;
   PhotoPeriod* ph;
@@ -52,6 +54,8 @@
 WifiHandler* wh;
 WiFiServer* ws;
 int display_timer;
+
+WiFiUDP Udp;
 
 
 
@@ -64,7 +68,7 @@ void setup()
   //Initialize serial and wait for port to open:
   SerialUSB.begin(9600);
   //while (!Serial);// wait for serial port to connect. Needed for native USB port only
-  delay(10000);
+  delay(1000);
   led_drive(0xFF,0xA5,0x00);
 
   SerialUSB.println("HerBo Start");
@@ -80,7 +84,7 @@ void setup()
 
 /**************Light & PhotoPeriod**************/
   l1 = new Light(0,true);
-  l2 = new Light(4,false);
+  l2 = new Light(1,true);
 
   ph = new PhotoPeriod(-98.183334,19.033333,-5);
   ph->add_light(l1);
@@ -89,8 +93,8 @@ void setup()
   init_time_RTCZero();
   init_alarm_RTCZero(sunrise);
 
-  set_time_RTCZero(1587298950);
-  ph->sync(1587298950);
+  set_time_RTCZero(1590476160);
+  ph->sync(1590476160);
 
 
 /**************WIFI**************/

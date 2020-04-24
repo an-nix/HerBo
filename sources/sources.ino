@@ -10,6 +10,8 @@
 #include "hardware_config.h"
 #include "HtmlGen.h"
 
+#include <WiFiUdp.h>
+
 
 #define STATUS_TIME		1000
 #define RECONNECT_TIME 	10000
@@ -40,6 +42,8 @@ WifiHandler* wh;
 WiFiServer* ws;
 int display_timer;
 
+WiFiUDP Udp;
+
 
 
 void setup() 
@@ -51,7 +55,7 @@ void setup()
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
   //while (!Serial);// wait for serial port to connect. Needed for native USB port only
-  delay(10000);
+  delay(1000);
   LOGGING_STARTING();
 
   Serial.println("HerBo Start");
@@ -67,7 +71,7 @@ void setup()
 
 /**************Light & PhotoPeriod**************/
   l1 = new Light(0,true);
-  l2 = new Light(4,false);
+  l2 = new Light(1,true);
 
   ph = new PhotoPeriod(-98.183334,19.033333,-5);
   ph->add_light(l1);

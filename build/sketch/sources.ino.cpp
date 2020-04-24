@@ -12,6 +12,8 @@
 #include "hardware_config.h"
 #include "HtmlGen.h"
 
+#include <WiFiUdp.h>
+
 
 #define STATUS_TIME		1000
 #define RECONNECT_TIME 	10000
@@ -42,23 +44,25 @@ WifiHandler* wh;
 WiFiServer* ws;
 int display_timer;
 
+WiFiUDP Udp;
 
 
-#line 45 "c:\\project\\HerBo\\sources\\sources.ino"
+
+#line 49 "c:\\project\\HerBo\\sources\\sources.ino"
 void setup();
-#line 95 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 99 "c:\\project\\HerBo\\sources\\sources.ino"
 void loop();
-#line 127 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 131 "c:\\project\\HerBo\\sources\\sources.ino"
 void test_callback(WiFiServer* s);
-#line 181 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 185 "c:\\project\\HerBo\\sources\\sources.ino"
 void led_drive(byte red, byte green, byte blue);
-#line 189 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 193 "c:\\project\\HerBo\\sources\\sources.ino"
 void connect();
-#line 197 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 201 "c:\\project\\HerBo\\sources\\sources.ino"
 void disconnect();
-#line 203 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 207 "c:\\project\\HerBo\\sources\\sources.ino"
 void sunrise();
-#line 45 "c:\\project\\HerBo\\sources\\sources.ino"
+#line 49 "c:\\project\\HerBo\\sources\\sources.ino"
 void setup() 
 {
 
@@ -68,7 +72,7 @@ void setup()
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
   //while (!Serial);// wait for serial port to connect. Needed for native USB port only
-  delay(10000);
+  delay(1000);
   LOGGING_STARTING();
 
   Serial.println("HerBo Start");
@@ -84,7 +88,7 @@ void setup()
 
 /**************Light & PhotoPeriod**************/
   l1 = new Light(0,true);
-  l2 = new Light(4,false);
+  l2 = new Light(1,true);
 
   ph = new PhotoPeriod(-98.183334,19.033333,-5);
   ph->add_light(l1);

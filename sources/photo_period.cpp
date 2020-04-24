@@ -223,7 +223,7 @@ void PhotoPeriod::sync(uint32_t epoch) {
     Serial.print("Duration : ");
     Serial.println(sunset - this->_stime.sunrise);
     this->_stime.duration = sunset - this->_stime.sunrise;
-    this->_max_steps = floor(this->_stime.duration / RESOLUTION);
+    this->_max_steps = floor(this->_stime.duration / (RESOLUTION*100));
     Serial.print("Max Step: ");
     Serial.println(this->_max_steps);
 
