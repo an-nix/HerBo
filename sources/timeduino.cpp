@@ -93,5 +93,3 @@ uint32_t get_midnight(uint32_t epoch,bool next_day)
     Serial.println((long)_t);
     return _t;
 }
-
-

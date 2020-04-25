@@ -11,6 +11,7 @@
 #include "HtmlGen.h"
 
 #include <WiFiUdp.h>
+#include "timeni.h"
 
 
 #define STATUS_TIME		1000
@@ -37,6 +38,7 @@
   Light *l1,*l2;
   //Light* l2;
   PhotoPeriod* ph;
+  TimeNiRTCZero *t;
   
 WifiHandler* wh;
 WiFiServer* ws;
@@ -93,6 +95,8 @@ void setup()
 
   //LOGGING_WAITING();
   display_timer = -1000;
+  
+  t = new TimeNiRTCZero();
 }
 
 
