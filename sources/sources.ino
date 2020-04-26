@@ -11,7 +11,7 @@
 #include "HtmlGen.h"
 
 #include <WiFiUdp.h>
-#include "timeni.h"
+
 
 
 #define STATUS_TIME		1000
@@ -38,7 +38,7 @@
   Light *l1,*l2;
   //Light* l2;
   PhotoPeriod* ph;
-  TimeNiRTCZero *t;
+  
   
 WifiHandler* wh;
 WiFiServer* ws;
@@ -46,7 +46,7 @@ int display_timer;
 
 WiFiUDP Udp;
 
-
+BH1750 lightMeter;
 
 void setup() 
 {
@@ -79,6 +79,7 @@ void setup()
   ph->add_light(l1);
   ph->add_light(l2);
 
+
   init_time();
   init_alarm(sunrise);
   
@@ -96,7 +97,10 @@ void setup()
   //LOGGING_WAITING();
   display_timer = -1000;
   
-  t = new TimeNiRTCZero();
+    Wire.begin();
+
+  lightMeter.begin();
+  
 }
 
 
@@ -128,6 +132,12 @@ void loop() {
       LOGGING_WAITING();
     }
   }
+
+  float lux = lightMeter.readLightLevel();
+  Serial.print("Light: ");
+  Serial.print(lux);
+  Serial.println(" lx");
+  delay(1000);
 
 }
 

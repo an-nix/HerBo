@@ -57,10 +57,8 @@ int PhotoPeriod::add_light(Light* light) {
   if(this->_iter == MAX_LED_GROUP)
     return 1; 
   else {
-    Serial.println(_iter);
     this->_lights[this->_iter] = light;
     this->_iter++;
-    Serial.println(_iter);
     return 0;
   }
 }
@@ -186,7 +184,6 @@ void PhotoPeriod::sync(uint32_t epoch) {
   //If the next sunset is in the past, recalculate for the next day
   if(epoch > sunset - SYNC_DOWN_DELTA)
   {
-    Serial.println("Too late");
     this->_stime.sunrise = this->get_next_sunrise(true,epoch,true);
     sunset = this->get_next_sunrise(false,epoch,true);
   }
@@ -199,7 +196,6 @@ void PhotoPeriod::sync(uint32_t epoch) {
     if(this->_stime.sunrise > epoch + SYNC_UP_DELTA)
     {
     //Set alarm
-    Serial.println("Too Early");
     Serial.print(this->_stime.sunrise - epoch);
     Serial.print(" second to wait");
     set_alarm(this->_stime.sunrise);
